@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>FitFocus | My Profile</title>
+<title>FitFocus | Edit Profile</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -44,39 +44,42 @@ url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fi
 
 background-size:cover;
 background-position:center;
-padding:70px;
+
+padding:60px;
+
 text-align:center;
+
 color:white;
 
 }
 
-.profile-img{
+.profile-image{
 
-width:150px;
-height:150px;
+width:140px;
+
+height:140px;
+
 border-radius:50%;
+
 border:5px solid white;
+
 object-fit:cover;
-box-shadow:0 5px 20px rgba(0,0,0,.3);
 
 }
 
 .card{
 
 border:none;
+
 border-radius:20px;
-box-shadow:0 10px 20px rgba(0,0,0,.12);
+
+box-shadow:0 10px 25px rgba(0,0,0,.12);
 
 }
 
-.card h3{
+.section-title{
 
 color:#dc3545;
-font-weight:bold;
-
-}
-
-.form-label{
 
 font-weight:bold;
 
@@ -85,7 +88,9 @@ font-weight:bold;
 .btn-save{
 
 background:#198754;
+
 color:white;
+
 font-weight:bold;
 
 }
@@ -93,31 +98,31 @@ font-weight:bold;
 .btn-save:hover{
 
 background:#157347;
+
 color:white;
 
 }
 
-.btn-edit{
+.btn-back{
 
-background:#0d6efd;
+background:#6c757d;
+
 color:white;
+
 font-weight:bold;
-
-}
-
-.btn-edit:hover{
-
-background:#0b5ed7;
-color:white;
 
 }
 
 footer{
 
 background:#111;
+
 color:white;
+
 padding:20px;
+
 margin-top:40px;
+
 text-align:center;
 
 }
@@ -146,11 +151,11 @@ text-align:center;
 
 <section class="header">
 
-<img src="https://i.pravatar.cc/200" class="profile-img">
+<img src="https://i.pravatar.cc/200" class="profile-image">
 
-<h2 class="mt-3">Nandana P N</h2>
+<h2 class="mt-3">Edit Profile</h2>
 
-<p>Gym Member</p>
+<p>Update your personal information</p>
 
 </section>
 
@@ -158,11 +163,11 @@ text-align:center;
 
 <div class="card p-5">
 
-<h3>
+<h3 class="section-title">
 
-<i class="bi bi-person-circle"></i>
+<i class="bi bi-pencil-square"></i>
 
-My Profile
+Personal Details
 
 </h3>
 
@@ -176,7 +181,7 @@ My Profile
 
 <label class="form-label">Full Name</label>
 
-<input type="text" class="form-control" value="Nandana P N" readonly>
+<input type="text" class="form-control" value="Nandana P N">
 
 </div>
 
@@ -184,7 +189,7 @@ My Profile
 
 <label class="form-label">Email</label>
 
-<input type="email" class="form-control" value="nandana@gmail.com" readonly>
+<input type="email" class="form-control" value="nandana@gmail.com">
 
 </div>
 
@@ -192,7 +197,7 @@ My Profile
 
 <label class="form-label">Phone Number</label>
 
-<input type="text" class="form-control" value="9876543210" readonly>
+<input type="text" class="form-control" value="9876543210">
 
 </div>
 
@@ -200,7 +205,7 @@ My Profile
 
 <label class="form-label">Age</label>
 
-<input type="number" class="form-control" value="21" readonly>
+<input type="number" class="form-control" value="21">
 
 </div>
 
@@ -208,23 +213,31 @@ My Profile
 
 <label class="form-label">Gender</label>
 
-<input type="text" class="form-control" value="Female" readonly>
+<select class="form-select">
+
+<option selected>Female</option>
+
+<option>Male</option>
+
+<option>Other</option>
+
+</select>
 
 </div>
 
 <div class="col-md-6 mb-3">
 
-<label class="form-label">Height</label>
+<label class="form-label">Height (cm)</label>
 
-<input type="text" class="form-control" value="165 cm" readonly>
+<input type="number" class="form-control" value="165">
 
 </div>
 
 <div class="col-md-6 mb-3">
 
-<label class="form-label">Weight</label>
+<label class="form-label">Weight (kg)</label>
 
-<input type="text" class="form-control" value="60 kg" readonly>
+<input type="number" class="form-control" value="60">
 
 </div>
 
@@ -232,7 +245,17 @@ My Profile
 
 <label class="form-label">Fitness Goal</label>
 
-<input type="text" class="form-control" value="Weight Loss" readonly>
+<select class="form-select">
+
+<option selected>Weight Loss</option>
+
+<option>Weight Gain</option>
+
+<option>Muscle Gain</option>
+
+<option>Fitness</option>
+
+</select>
 
 </div>
 
@@ -240,7 +263,19 @@ My Profile
 
 <label class="form-label">Address</label>
 
-<textarea class="form-control" rows="3" readonly>East Kadungallur, Aluva, Ernakulam, Kerala</textarea>
+<textarea class="form-control" rows="3">East Kadungallur, Aluva, Ernakulam, Kerala</textarea>
+
+</div>
+
+<div class="col-md-12 mb-3">
+
+<label class="form-label">
+
+Profile Picture
+
+</label>
+
+<input type="file" class="form-control">
 
 </div>
 
@@ -248,21 +283,27 @@ My Profile
 
 <div class="text-center mt-4">
 
-<a href="edit_profile.html" class="btn btn-primary">
+<a href="save_profile.html" class="btn btn-save px-5">
 
-<i class="bi bi-pencil-square"></i>
+<i class="bi bi-check-circle-fill"></i>
 
-Edit Profile
+Save Changes
 
 </a>
-
-<button type="submit" class="btn btn-save">
 
 <i class="bi bi-check-circle-fill"></i>
 
 Save Changes
 
 </button>
+
+<a href="profile.html" class="btn btn-back px-5 ms-2">
+
+<i class="bi bi-arrow-left-circle"></i>
+
+Cancel
+
+</a>
 
 </div>
 
@@ -276,25 +317,15 @@ Save Changes
 
 <h5>FitFocus Gym Management System</h5>
 
-<p>© 2026 All Rights Reserved.</p>
+<p>support@fitfocus.com</p>
+
+<p>+91 9876543210</p>
+
+<p>© 2026 FitFocus. All Rights Reserved.</p>
 
 </footer>
 
-<script>
-
-function enableEdit(){
-
-let fields=document.querySelectorAll("input, textarea");
-
-fields.forEach(field=>{
-
-field.removeAttribute("readonly");
-
-});
-
-}
-
-</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

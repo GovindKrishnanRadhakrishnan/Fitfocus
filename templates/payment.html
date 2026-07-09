@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>FitFocus | Membership Payment</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+<style>
+
+body{
+background:#eef2f7;
+font-family:'Segoe UI',sans-serif;
+}
+
+.navbar{
+background:#111;
+}
+
+.navbar-brand{
+font-size:30px;
+font-weight:bold;
+}
+
+.fit{
+color:#dc3545;
+}
+
+.gym{
+color:#edff4d;
+}
+
+.header{
+background:linear-gradient(135deg,#dc3545,#ff9800);
+padding:60px;
+text-align:center;
+color:white;
+}
+
+.card{
+border:none;
+border-radius:20px;
+box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+
+.section-title{
+color:#dc3545;
+font-weight:bold;
+}
+
+.qr-img{
+width:280px;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+.btn-pay{
+background:#198754;
+color:white;
+font-weight:bold;
+border-radius:30px;
+padding:12px 40px;
+}
+
+.btn-pay:hover{
+background:#157347;
+color:white;
+}
+
+footer{
+background:#111;
+color:white;
+padding:20px;
+margin-top:50px;
+text-align:center;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-dark">
+
+<div class="container">
+
+<a class="navbar-brand">
+
+<span class="fit">FITFOCUS</span>
+
+<span class="gym">GYM</span>
+
+</a>
+
+</div>
+
+</nav>
+
+<!-- Header -->
+
+<section class="header">
+
+<h1>
+
+<i class="bi bi-credit-card-fill"></i>
+
+Membership Payment
+
+</h1>
+
+<p>
+
+Pay your membership fee securely using UPI QR Code
+
+</p>
+
+</section>
+
+<!-- Payment -->
+
+<div class="container my-5">
+
+<div class="row g-4">
+
+<!-- Member Details -->
+
+<div class="col-lg-5">
+
+<div class="card p-4">
+
+<h3 class="section-title">
+
+<i class="bi bi-person-circle"></i>
+
+Member Details
+
+</h3>
+
+<hr>
+
+<p><strong>Name :</strong> Nandana P N</p>
+
+<p><strong>Member ID :</strong> M001</p>
+
+<p><strong>Membership :</strong> Premium</p>
+
+<p><strong>Duration :</strong> 1 Month</p>
+
+<p>
+
+<strong>Amount :</strong>
+
+<span class="text-danger fw-bold">
+
+₹1500
+
+</span>
+
+</p>
+
+</div>
+
+</div>
+
+<!-- QR Payment -->
+
+<div class="col-lg-7">
+
+<div class="card p-4 text-center">
+
+<h3 class="section-title">
+
+<i class="bi bi-qr-code-scan"></i>
+
+Scan & Pay
+
+</h3>
+
+<hr>
+
+<img src="images/qr.png"
+class="qr-img img-fluid mx-auto">
+
+<h4 class="mt-4 text-success">
+
+Scan this QR Code
+
+</h4>
+
+<p>
+
+Use any UPI Application
+
+</p>
+
+<div class="row mt-3">
+
+<div class="col-md-3">
+
+<i class="bi bi-phone-fill fs-1 text-primary"></i>
+
+<p>Google Pay</p>
+
+</div>
+
+<div class="col-md-3">
+
+<i class="bi bi-phone-fill fs-1 text-success"></i>
+
+<p>PhonePe</p>
+
+</div>
+
+<div class="col-md-3">
+
+<i class="bi bi-wallet2 fs-1 text-info"></i>
+
+<p>Paytm</p>
+
+</div>
+
+<div class="col-md-3">
+
+<i class="bi bi-bank fs-1 text-danger"></i>
+
+<p>BHIM UPI</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<p>
+
+<strong>UPI ID</strong>
+
+</p>
+
+<h5 class="text-primary">
+
+yourupiid@oksbi
+
+</h5>
+
+<p>
+
+<strong>Total Amount</strong>
+
+</p>
+
+<h2 class="text-danger">
+
+₹1500
+
+</h2>
+
+<a href="payment_success.html"
+
+class="btn btn-pay mt-3">
+
+<i class="bi bi-check-circle-fill"></i>
+
+I've Completed Payment
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Footer -->
+
+<footer>
+
+<h5>FitFocus Gym Management System</h5>
+
+<p>Email : support@fitfocus.com</p>
+
+<p>Phone : +91 9876543210</p>
+
+<p>© 2026 FitFocus. All Rights Reserved.</p>
+
+</footer>
+
+</body>
+
+</html>
