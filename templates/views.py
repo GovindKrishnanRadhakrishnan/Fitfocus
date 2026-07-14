@@ -1,14 +1,16 @@
 from django.shortcuts import render, redirect
 from .models import Member
 
-# HOME
+
+# HOME PAGE
 def home(request):
     return render(request, "home.html")
 
 
-# REGISTER (SAVE TO MYSQL)
+# REGISTER MEMBER
 def register(request):
     if request.method == "POST":
+
         name = request.POST['name']
         dob = request.POST['dob']
         age = request.POST['age']
@@ -42,16 +44,23 @@ def register(request):
 
 # LOGIN
 def login(request):
+
     if request.method == "POST":
+
         email = request.POST['email']
         password = request.POST['password']
 
-        user = Member.objects.filter(email=email, password=password).first()
+        member = Member.objects.filter(
+            email=email,
+            password=password
+        ).first()
 
-        if user:
+        if member:
             return redirect('dashboard')
-        else:
-            return render(request, "login.html", {"error": "Invalid login"})
+
+        return render(request, "login.html", {
+            "error": "Invalid Email or Password"
+        })
 
     return render(request, "login.html")
 
@@ -59,3 +68,13 @@ def login(request):
 # DASHBOARD
 def dashboard(request):
     return render(request, "dashboard.html")
+
+
+# VIEW ALL MEMBERS (ADMIN)
+def view_members(request):
+
+    members = Member.objects.all()
+
+    return render(request, "view_members.html", {
+        "members": members
+    })

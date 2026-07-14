@@ -141,11 +141,9 @@ box-shadow:0 0 10px rgba(255,152,0,.4);
 }
 
 .form-select option{
-
-color:black;
-
+    color:black;
+    background:white;
 }
-
 .register-btn{
 
 background:linear-gradient(45deg,#ff9800,#ff5722);
@@ -226,7 +224,8 @@ Join FitFocus and begin your fitness journey today.
 
 </div>
 
-<form>
+<form method="POST">
+    {% csrf_token %}
 
 <div class="row">
 
@@ -236,6 +235,7 @@ Join FitFocus and begin your fitness journey today.
 
 <input
 type="text"
+name="fullname"
 class="form-control"
 placeholder="Enter Full Name"
 required>
@@ -246,10 +246,7 @@ required>
 
 <label>Date of Birth</label>
 
-<input
-type="date"
-class="form-control"
-required>
+<input type="date" name="dob" class="form-control" required>
 
 </div>
 
@@ -257,11 +254,7 @@ required>
 
 <label>Age</label>
 
-<input
-type="number"
-class="form-control"
-placeholder="Age"
-required>
+<input type="number" name="age" class="form-control" required>
 
 </div>
 
@@ -269,16 +262,13 @@ required>
 
 <label>Gender</label>
 
-<select class="form-select">
+<label>Gender</label>
 
-<option selected disabled>Select Gender</option>
-
-<option>Male</option>
-
-<option>Female</option>
-
-<option>Other</option>
-
+<select name="gender" class="form-select" required>
+    <option value="" selected disabled>Select Gender</option>
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+    <option value="Other">Other</option>
 </select>
 
 </div>
@@ -287,11 +277,7 @@ required>
 
 <label>Phone Number</label>
 
-<input
-type="tel"
-class="form-control"
-placeholder="Phone Number"
-required>
+<input type="tel" name="phone" class="form-control" required>
 
 </div>
 
@@ -299,11 +285,7 @@ required>
 
 <label>Email Address</label>
 
-<input
-type="email"
-class="form-control"
-placeholder="Email Address"
-required>
+<input type="email" name="email" class="form-control" required>
 
 </div>
 
@@ -311,11 +293,7 @@ required>
 
 <label>Height (cm)</label>
 
-<input
-type="number"
-class="form-control"
-placeholder="Height"
-required>
+<input type="number" name="height" class="form-control" required>
 
 </div>
 
@@ -323,11 +301,7 @@ required>
 
 <label>Weight (kg)</label>
 
-<input
-type="number"
-class="form-control"
-placeholder="Weight"
-required>
+<input type="number" name="weight" class="form-control" required>
 
 </div>
 
@@ -335,10 +309,7 @@ required>
 
 <label>Address</label>
 
-<textarea
-class="form-control"
-rows="3"
-placeholder="Enter Address"></textarea>
+<textarea name="address" class="form-control"></textarea>
 
 </div>
 
@@ -346,20 +317,15 @@ placeholder="Enter Address"></textarea>
 
 <label>Fitness Goal</label>
 
-<select class="form-select">
+<label>Fitness Goal</label>
 
-<option selected disabled>Select Goal</option>
-
-<option>Weight Loss</option>
-
-<option>Muscle Gain</option>
-
-<option>Body Building</option>
-
-<option>Fitness Maintenance</option>
-
-<option>General Fitness</option>
-
+<select name="goal" class="form-select" required>
+    <option value="" selected disabled>Select Goal</option>
+    <option value="Weight Loss">Weight Loss</option>
+    <option value="Muscle Gain">Muscle Gain</option>
+    <option value="Body Building">Body Building</option>
+    <option value="Fitness Maintenance">Fitness Maintenance</option>
+    <option value="General Fitness">General Fitness</option>
 </select>
 
 </div>
@@ -368,11 +334,7 @@ placeholder="Enter Address"></textarea>
 
 <label>Password</label>
 
-<input
-type="password"
-class="form-control"
-placeholder="Password"
-required>
+<input type="password" name="password" class="form-control" required>
 
 </div>
 
@@ -380,22 +342,15 @@ required>
 
 <label>Confirm Password</label>
 
-<input
-type="password"
-class="form-control"
-placeholder="Confirm Password"
-required>
+<input type="password" name="confirm_password" class="form-control" required>
 
 </div>
 
 <div class="d-grid">
 
-<button class="btn register-btn">
-
-<i class="fa-solid fa-user-plus"></i>
-
-Register
-
+<button type="submit" class="btn register-btn">
+    <i class="fa-solid fa-user-plus"></i>
+    Register
 </button>
 
 </div>
@@ -406,10 +361,8 @@ Register
 
 Already have an account?
 
-<a href="login.html">
-
-Login Here
-
+<a href="{% url 'login' %}">
+    Login Here
 </a>
 
 </p>
