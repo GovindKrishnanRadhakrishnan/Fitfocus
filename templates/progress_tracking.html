@@ -1,90 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 
-<title>Client Progress Tracking</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>FitFocus | Progress Tracking</title>
 
 <style>
 
 body{
-font-family:Arial,sans-serif;
-background:#f4f4f4;
-margin:0;
-padding:0;
+    font-family:Arial,sans-serif;
+    background:#f4f4f4;
+    margin:0;
+    padding:0;
 }
 
 .container{
-width:70%;
-margin:40px auto;
-background:white;
-padding:30px;
-border-radius:10px;
-box-shadow:0 0 10px gray;
+    width:50%;
+    margin:40px auto;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
 }
 
 h2{
-text-align:center;
-color:#d62828;
+    text-align:center;
+    color:#d62828;
+    margin-bottom:25px;
 }
 
 label{
-font-weight:bold;
-display:block;
-margin-top:15px;
+    font-weight:bold;
+    display:block;
+    margin-top:15px;
 }
 
 input,textarea,select{
-width:100%;
-padding:10px;
-margin-top:5px;
-border:1px solid #ccc;
-border-radius:5px;
-font-size:16px;
-}
-
-.row{
-display:flex;
-gap:20px;
-}
-
-.column{
-flex:1;
+    width:100%;
+    padding:9px;
+    margin-top:5px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    font-size:15px;
+    box-sizing:border-box;
 }
 
 textarea{
-resize:none;
+    resize:none;
 }
 
 .buttons{
-text-align:center;
-margin-top:30px;
+    text-align:center;
+    margin-top:25px;
 }
 
-button{
-padding:10px 25px;
-font-size:16px;
-border:none;
-border-radius:5px;
-cursor:pointer;
-margin:10px;
+button,
+.back{
+    padding:10px 22px;
+    font-size:15px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    margin:5px;
 }
 
 .update{
-background:green;
-color:white;
+    background:green;
+    color:white;
 }
 
 .reset{
-background:orange;
-color:white;
+    background:orange;
+    color:white;
 }
 
 .back{
-background:gray;
-color:white;
-text-decoration:none;
-padding:12px 25px;
-border-radius:5px;
+    background:gray;
+    color:white;
+    text-decoration:none;
+    display:inline-block;
 }
 
 </style>
@@ -99,106 +96,51 @@ border-radius:5px;
 
 <form>
 
-<div class="row">
-
-<div class="column">
-
 <label>Member Name</label>
+
 <input type="text" placeholder="Enter Name">
 
-</div>
-
-<div class="column">
-
-<label>Trainer Name</label>
-<input type="text" placeholder="Trainer Name">
-
-</div>
-
-</div>
-
-<div class="row">
-
-<div class="column">
-
-<label>Old Weight (kg)</label>
-<input type="number" placeholder="Old Weight">
-
-</div>
-
-<div class="column">
 
 <label>Current Weight (kg)</label>
-<input type="number" placeholder="Current Weight">
 
-</div>
+<input type="number" placeholder="Enter Current Weight">
 
-</div>
-
-<div class="row">
-
-<div class="column">
-
-<label>Old Height (cm)</label>
-<input type="number" placeholder="Old Height">
-
-</div>
-
-<div class="column">
-
-<label>Current Height (cm)</label>
-<input type="number" placeholder="Current Height">
-
-</div>
-
-</div>
 
 <label>Progress Date</label>
+
 <input type="date">
 
-<label>Health Changes</label>
-
-<textarea rows="4" placeholder="Example:
-Better sleep
-Reduced body pain
-Improved stamina
-More energetic"></textarea>
 
 <label>Fitness Improvements</label>
 
-<textarea rows="4" placeholder="Example:
-Lost 5 kg
-Improved flexibility
-Can run longer"></textarea>
+<textarea rows="3"
+placeholder="Example: Improved stamina, lost weight, better flexibility"></textarea>
 
-<label>My Experience</label>
-
-<textarea rows="4" placeholder="Write your experience after joining FitFocus Gym"></textarea>
 
 <label>Overall Satisfaction</label>
 
 <select>
 
 <option>Excellent</option>
-
 <option>Very Good</option>
-
 <option>Good</option>
-
 <option>Average</option>
-
 <option>Poor</option>
 
 </select>
 
+
 <div class="buttons">
 
-<a href="view_progress.html" class="btn btn-success">
-    Save Progress
+<a href="view_progress.html" class="update">
+Save Progress
 </a>
-<button type="reset" class="reset">Reset</button>
 
-<a href="client_dashboard.html" class="back">Back</a>
+
+
+<a href="client_dashboard.html" class="back">
+Back
+</a>
 
 </div>
 
@@ -207,4 +149,5 @@ Can run longer"></textarea>
 </div>
 
 </body>
+
 </html>
