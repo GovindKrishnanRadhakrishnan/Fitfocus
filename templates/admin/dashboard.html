@@ -1,0 +1,93 @@
+{% extends "dashboard_base.html" %}
+
+{% block title %}Admin Dashboard | FITFOCUS{% endblock %}
+
+{% block dashboard_content %}
+<h1 class="h3 mb-4">Admin Dashboard</h1>
+<div class="row g-3 mb-4">
+    <div class="col-md-4">
+        <div class="stat-card p-4">
+            <div class="stat-label">Total Members</div>
+            <div class="stat-value">{{ total_members }}</div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="stat-card p-4">
+            <div class="stat-label">Total Trainers</div>
+            <div class="stat-value">{{ total_trainers }}</div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="stat-card p-4">
+            <div class="stat-label">Total Payments</div>
+            <div class="stat-value">{{ total_payments }}</div>
+            <div class="text-muted">Amount: {{ payment_total_amount }}</div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3 mb-4">
+    <div class="col-md-4 col-xl-2">
+        <a class="dashboard-link" href="{% url 'admin_member_add' %}">
+            <div class="stat-card p-3 h-100"><strong>Add Members</strong><p class="small text-muted mb-0 mt-2">Register a new gym member.</p></div>
+        </a>
+    </div>
+    <div class="col-md-4 col-xl-2">
+        <a class="dashboard-link" href="{% url 'admin_members' %}">
+            <div class="stat-card p-3 h-100"><strong>View Members</strong><p class="small text-muted mb-0 mt-2">Browse member records.</p></div>
+        </a>
+    </div>
+    <div class="col-md-4 col-xl-2">
+        <a class="dashboard-link" href="{% url 'admin_trainer_add' %}">
+            <div class="stat-card p-3 h-100"><strong>Add Trainers</strong><p class="small text-muted mb-0 mt-2">Create a trainer account.</p></div>
+        </a>
+    </div>
+    <div class="col-md-4 col-xl-2">
+        <a class="dashboard-link" href="{% url 'admin_trainers_manage' %}">
+            <div class="stat-card p-3 h-100"><strong>Manage Trainers</strong><p class="small text-muted mb-0 mt-2">Update trainer information.</p></div>
+        </a>
+    </div>
+    <div class="col-md-4 col-xl-2">
+        <a class="dashboard-link" href="{% url 'admin_assign_trainer' %}">
+            <div class="stat-card p-3 h-100"><strong>Assign Trainers</strong><p class="small text-muted mb-0 mt-2">Link trainers to members.</p></div>
+        </a>
+    </div>
+    <div class="col-md-4 col-xl-2">
+        <a class="dashboard-link" href="{% url 'admin_payments' %}">
+            <div class="stat-card p-3 h-100"><strong>View Payments</strong><p class="small text-muted mb-0 mt-2">Review payment records.</p></div>
+        </a>
+    </div>
+</div>
+
+<div class="content-card p-4">
+    <h2 class="h5 mb-3">Recent Members</h2>
+    <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Goal</th>
+                    <th>Trainer</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for member in recent_members %}
+                    <tr>
+                        <td>{{ member.member_id }}</td>
+                        <td><a href="{% url 'admin_member_detail' member.member_id %}">{{ member.fullname }}</a></td>
+                        <td>{{ member.email }}</td>
+                        <td>{{ member.phone }}</td>
+                        <td>{{ member.goal }}</td>
+                        <td>{{ member.trainer.fullname|default:"Unassigned" }}</td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="6" class="text-muted">No members yet.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

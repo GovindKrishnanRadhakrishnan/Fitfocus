@@ -1,276 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FitFocus Gym | Login</title>
+{% extends "base.html" %}
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+{% block title %}Login | FITFOCUS{% endblock %}
 
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
-}
-
-body{
-height:100vh;
-display:flex;
-background:#111;
-}
-
-.left-panel{
-width:55%;
-background:
-linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=80");
-background-size:cover;
-background-position:center;
-display:flex;
-justify-content:center;
-align-items:center;
-color:white;
-text-align:center;
-padding:50px;
-}
-
-.left-panel h1{
-font-size:60px;
-font-weight:bold;
-}
-
-.left-panel p{
-font-size:22px;
-margin-top:20px;
-}
-
-.fit{
-color:#ff3b3b;
-}
-
-.gym{
-color:#ffe600;
-}
-
-.right-panel{
-width:45%;
-display:flex;
-justify-content:center;
-align-items:center;
-background:#f4f6f9;
-}
-
-.login-box{
-width:420px;
-background:white;
-padding:40px;
-border-radius:20px;
-box-shadow:0 15px 35px rgba(0,0,0,.2);
-}
-
-.login-box h2{
-text-align:center;
-font-weight:bold;
-margin-bottom:10px;
-}
-
-.login-box p{
-text-align:center;
-color:#666;
-margin-bottom:30px;
-}
-
-.input-group{
-margin-bottom:20px;
-}
-
-.input-group-text{
-background:#fff;
-}
-
-.form-control{
-height:50px;
-}
-
-.roles{
-margin-bottom:20px;
-}
-
-.roles label{
-display:block;
-font-weight:600;
-margin-bottom:10px;
-}
-
-.login-btn{
-width:100%;
-background:#dc3545;
-color:white;
-font-size:18px;
-font-weight:bold;
-border:none;
-padding:12px;
-border-radius:30px;
-transition:.3s;
-}
-
-.login-btn:hover{
-background:#b02a37;
-transform:translateY(-2px);
-}
-
-.links{
-text-align:center;
-margin-top:20px;
-}
-
-.links a{
-text-decoration:none;
-font-weight:bold;
-color:#dc3545;
-}
-
-.links a:hover{
-text-decoration:underline;
-}
-
-@media(max-width:992px){
-
-.left-panel{
-display:none;
-}
-
-.right-panel{
-width:100%;
-}
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="left-panel">
-
-<div>
-
-<h1>
-
-<span class="fit">FITFOCUS</span>
-
-<span class="gym">GYM</span>
-
-</h1>
-
-<p>
-
-Transform Your Body.<br>
-
-Transform Your Life.
-
-</p>
-
+{% block content %}
+<div class="auth-shell">
+    <div class="container-fluid px-0">
+        <div class="row g-0">
+            <div class="col-lg-6 hero-panel d-none d-lg-flex align-items-center justify-content-center text-center p-5">
+                <div>
+                    <h1 class="display-4 fw-bold">FITFOCUS</h1>
+                    <p class="fs-4 text-uppercase">Gym Management System</p>
+                    <p class="text-muted">Sign in with your email, password, and role.</p>
+                </div>
+            </div>
+            <div class="col-lg-6 d-flex align-items-center justify-content-center p-4 p-lg-5">
+                <div class="auth-card p-4 p-md-5 w-100" style="max-width: 460px;">
+                    <h2 class="mb-1">Welcome back</h2>
+                    <p class="text-muted mb-4">Login to open your role dashboard.</p>
+                    <form method="post" novalidate>
+                        {% csrf_token %}
+                        {% include "includes/form_fields.html" %}
+                        <button type="submit" class="btn btn-accent w-100 py-2">Login</button>
+                    </form>
+                    <p class="text-center mt-4 mb-0">
+                        New member? <a href="{% url 'register' %}">Create an account</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-</div>
-
-<div class="right-panel">
-
-<div class="login-box">
-
-<h2>Welcome Back</h2>
-
-<p>Login to continue your fitness journey</p>
-
-<form method="POST" action="{% url 'login' %}">
-
-
-<div class="input-group">
-
-<span class="input-group-text">
-
-<i class="fa fa-envelope"></i>
-
-</span>
-
-<input type="email"
-name="email"
-class="form-control"
-placeholder="Email Address"
-required>
-
-</div>
-
-<div class="input-group">
-
-<span class="input-group-text">
-
-<i class="fa fa-lock"></i>
-
-</span>
-
-<input type="password"
-name="password"
-class="form-control"
-placeholder="Password"
-required>
-
-</div>
-
-<div class="roles">
-
-<label><input type="radio" name="role" value="admin"> Admin</label>
-
-<label><input type="radio" name="role" value="trainer"> Trainer</label>
-
-<label><input type="radio" name="role" value="member" checked> Member</label>
-
-</div>
-
-<button class="login-btn">
-
-<i class="fa fa-right-to-bracket"></i>
-
-Login
-
-</button>
-
-<div class="links">
-
-<p>
-
-Don't have an account?
-
-<a href="{% url 'register' %}">Register</a>
-
-</p>
-
-<p>
-
-<a href="{% url 'home' %}">
-
-<i class="fa fa-arrow-left"></i>
-
-Back to Home
-
-</a>
-
-</p>
-
-</div>
-
-</form>
-
-</div>
-
-</div>
-
-</body>
-
-</html>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "dashboard_base.html" %}
+{% block title %}Trainer Profile | FITFOCUS{% endblock %}
+{% block dashboard_content %}
+<h1 class="h3 mb-4">Trainer Profile</h1>
+<div class="content-card p-4" style="max-width: 720px;">
+    <dl class="row mb-0">
+        <dt class="col-sm-4">Trainer ID</dt><dd class="col-sm-8">{{ trainer.trainer_id }}</dd>
+        <dt class="col-sm-4">Full Name</dt><dd class="col-sm-8">{{ trainer.fullname }}</dd>
+        <dt class="col-sm-4">Email</dt><dd class="col-sm-8">{{ trainer.email }}</dd>
+        <dt class="col-sm-4">Phone</dt><dd class="col-sm-8">{{ trainer.phone }}</dd>
+        <dt class="col-sm-4">Specialization</dt><dd class="col-sm-8">{{ trainer.specialization }}</dd>
+        <dt class="col-sm-4">Qualification</dt><dd class="col-sm-8">{{ trainer.qualification }}</dd>
+    </dl>
+</div>
+{% endblock %}

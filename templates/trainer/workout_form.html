@@ -1,0 +1,49 @@
+{% extends "dashboard_base.html" %}
+{% block title %}Assign Workout Plan | FITFOCUS{% endblock %}
+{% block dashboard_content %}
+<h1 class="h3 mb-4">Assign Workout Plan</h1>
+<div class="row g-4">
+    <div class="col-lg-5">
+        <div class="content-card p-4">
+            {% if form.fields.member.queryset.exists %}
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    {% include "includes/form_fields.html" %}
+                    <button type="submit" class="btn btn-accent">Save Workout Plan</button>
+                </form>
+            {% else %}
+                <p class="text-muted mb-0">No members are assigned to you yet. Ask an administrator to assign members first.</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-lg-7">
+        <div class="content-card p-4">
+            <h2 class="h5 mb-3">Recently assigned</h2>
+            <div class="table-responsive">
+                <table class="table align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th>Member</th>
+                            <th>Workout</th>
+                            <th>Type</th>
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for plan in recent_plans %}
+                            <tr>
+                                <td>{{ plan.member.fullname }}</td>
+                                <td>{{ plan.workout_name }}</td>
+                                <td>{{ plan.exercise_type }}</td>
+                                <td>{{ plan.duration }}</td>
+                            </tr>
+                        {% empty %}
+                            <tr><td colspan="4" class="text-muted">No workout plans yet.</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

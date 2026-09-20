@@ -1,0 +1,30 @@
+{% extends "dashboard_base.html" %}
+{% block title %}Assigned Diet Plan | FITFOCUS{% endblock %}
+{% block dashboard_content %}
+<h1 class="h3 mb-4">Assigned Diet Plan</h1>
+{% if latest %}
+    <div class="content-card p-4">
+        <p class="text-muted">Assigned by {{ latest.trainer.fullname }}</p>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <h2 class="h6">Breakfast</h2>
+                <p>{{ latest.breakfast }}</p>
+                <h2 class="h6">Lunch</h2>
+                <p>{{ latest.lunch }}</p>
+            </div>
+            <div class="col-md-6">
+                <h2 class="h6">Dinner</h2>
+                <p>{{ latest.dinner }}</p>
+                <h2 class="h6">Snacks</h2>
+                <p>{{ latest.snacks }}</p>
+            </div>
+            <div class="col-12">
+                <h2 class="h6">Instructions</h2>
+                <p class="mb-0">{{ latest.instructions }}</p>
+            </div>
+        </div>
+    </div>
+{% else %}
+    <div class="content-card p-4"><p class="text-muted mb-0">No diet plan has been assigned yet.</p></div>
+{% endif %}
+{% endblock %}

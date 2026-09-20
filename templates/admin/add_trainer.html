@@ -1,0 +1,13 @@
+{% extends "dashboard_base.html" %}
+{% block title %}{{ title }} | FITFOCUS{% endblock %}
+{% block dashboard_content %}
+<h1 class="h3 mb-4">{{ title }}</h1>
+<div class="content-card p-4" style="max-width: 720px;">
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {% include "includes/form_fields.html" %}
+        <button type="submit" class="btn btn-accent">Save Trainer</button>
+        <a class="btn btn-outline-light" href="{% url 'admin_trainers_manage' %}">Cancel</a>
+    </form>
+</div>
+{% endblock %}

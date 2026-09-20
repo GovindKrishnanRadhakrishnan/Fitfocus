@@ -1,0 +1,58 @@
+{% extends "dashboard_base.html" %}
+{% block title %}Assigned Workout Plan | FITFOCUS{% endblock %}
+{% block dashboard_content %}
+<h1 class="h3 mb-4">Assigned Workout Plan</h1>
+{% if latest %}
+    <div class="content-card p-4 mb-4">
+        <h2 class="h5">{{ latest.workout_name }}</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Exercise type:</strong> {{ latest.exercise_type }}</p>
+                <p><strong>Duration:</strong> {{ latest.duration }}</p>
+                <p><strong>Sets:</strong> {{ latest.sets }}</p>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Repetitions:</strong> {{ latest.repetitions }}</p>
+                <p><strong>Trainer:</strong> {{ latest.trainer.fullname }}</p>
+                <p><strong>Instructions:</strong> {{ latest.instructions }}</p>
+            </div>
+        </div>
+    </div>
+{% else %}
+    <div class="content-card p-4 mb-4"><p class="text-muted mb-0">No workout plan has been assigned yet.</p></div>
+{% endif %}
+
+{% if plans|length > 1 %}
+    <div class="content-card p-4">
+        <h2 class="h5 mb-3">Previous plans</h2>
+        <div class="table-responsive">
+            <table class="table align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>Workout name</th>
+                        <th>Exercise type</th>
+                        <th>Duration</th>
+                        <th>Sets</th>
+                        <th>Repetitions</th>
+                        <th>Trainer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for plan in plans %}
+                        {% if not forloop.first %}
+                            <tr>
+                                <td>{{ plan.workout_name }}</td>
+                                <td>{{ plan.exercise_type }}</td>
+                                <td>{{ plan.duration }}</td>
+                                <td>{{ plan.sets }}</td>
+                                <td>{{ plan.repetitions }}</td>
+                                <td>{{ plan.trainer.fullname }}</td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endif %}
+{% endblock %}

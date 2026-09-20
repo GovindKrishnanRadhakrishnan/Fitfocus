@@ -1,0 +1,83 @@
+{% extends "dashboard_base.html" %}
+{% block title %}Member Dashboard | FITFOCUS{% endblock %}
+{% block dashboard_content %}
+<h1 class="h3 mb-4">Member Dashboard</h1>
+<div class="row g-3 mb-4">
+    <div class="col-md-4">
+        <div class="stat-card p-4">
+            <div class="stat-label">Current Weight</div>
+            <div class="stat-value">{{ current_weight }} kg</div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="stat-card p-4">
+            <div class="stat-label">BMI</div>
+            <div class="stat-value">{{ bmi|default:"—" }}</div>
+            <div class="text-muted">{{ bmi_category }}</div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="stat-card p-4">
+            <div class="stat-label">Payment Status</div>
+            <div class="stat-value h3 mb-0">{% if latest_payment %}{{ latest_payment.payment_status }}{% else %}None{% endif %}</div>
+            {% if latest_payment %}<div class="text-muted">{{ latest_payment.amount }} · {{ latest_payment.payment_date }}</div>{% endif %}
+        </div>
+    </div>
+</div>
+
+<div class="row g-3 mb-4">
+    <div class="col-md-4 col-xl">
+        <a class="dashboard-link" href="{% url 'member_profile' %}">
+            <div class="stat-card p-3 h-100"><strong>Member Profile</strong><p class="small text-muted mb-0 mt-2">View your personal details.</p></div>
+        </a>
+    </div>
+    <div class="col-md-4 col-xl">
+        <a class="dashboard-link" href="{% url 'member_workout' %}">
+            <div class="stat-card p-3 h-100"><strong>Assigned Workout Plan</strong><p class="small text-muted mb-0 mt-2">See your current workout.</p></div>
+        </a>
+    </div>
+    <div class="col-md-4 col-xl">
+        <a class="dashboard-link" href="{% url 'member_diet' %}">
+            <div class="stat-card p-3 h-100"><strong>Assigned Diet Plan</strong><p class="small text-muted mb-0 mt-2">See your current diet.</p></div>
+        </a>
+    </div>
+    <div class="col-md-4 col-xl">
+        <a class="dashboard-link" href="{% url 'member_progress' %}">
+            <div class="stat-card p-3 h-100"><strong>Progress Tracking</strong><p class="small text-muted mb-0 mt-2">Review weight and BMI history.</p></div>
+        </a>
+    </div>
+    <div class="col-md-4 col-xl">
+        <a class="dashboard-link" href="{% url 'member_payments' %}">
+            <div class="stat-card p-3 h-100"><strong>Payment Details</strong><p class="small text-muted mb-0 mt-2">View your payment records.</p></div>
+        </a>
+    </div>
+</div>
+
+<div class="row g-3">
+    <div class="col-lg-6">
+        <div class="content-card p-4 h-100">
+            <h2 class="h5">Profile summary</h2>
+            <p class="mb-1"><strong>{{ member.fullname }}</strong></p>
+            <p class="mb-1 text-muted">{{ member.email }} · {{ member.phone }}</p>
+            <p class="mb-0">Goal: {{ member.goal }}{% if assigned_trainer %} · Trainer: {{ assigned_trainer.fullname }}{% endif %}</p>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="content-card p-4 h-100">
+            <h2 class="h5">Latest workout</h2>
+            {% if latest_workout %}
+                <p class="mb-1"><strong>{{ latest_workout.workout_name }}</strong> · {{ latest_workout.exercise_type }}</p>
+                <p class="text-muted mb-0">{{ latest_workout.duration }} · Trainer: {{ latest_workout.trainer.fullname }}</p>
+            {% else %}
+                <p class="text-muted mb-0">No workout plan assigned yet.</p>
+            {% endif %}
+            <h2 class="h5 mt-4">Latest diet plan</h2>
+            {% if latest_diet %}
+                <p class="mb-0">Assigned by {{ latest_diet.trainer.fullname }}</p>
+            {% else %}
+                <p class="text-muted mb-0">No diet plan assigned yet.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

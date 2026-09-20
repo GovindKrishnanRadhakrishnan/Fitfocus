@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Page not found | FITFOCUS{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <div class="content-card p-5 text-center">
+        <h1>Page not found</h1>
+        <p class="text-muted">The record or page you requested does not exist.</p>
+        <a class="btn btn-accent" href="{% url 'home' %}">Return home</a>
+    </div>
+</div>
+{% endblock %}

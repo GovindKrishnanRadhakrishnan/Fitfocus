@@ -1,0 +1,44 @@
+{% extends "dashboard_base.html" %}
+{% block title %}Assign Trainers | FITFOCUS{% endblock %}
+{% block dashboard_content %}
+<h1 class="h3 mb-4">Assign Trainers</h1>
+<div class="row g-4">
+    <div class="col-lg-5">
+        <div class="content-card p-4">
+            <h2 class="h5 mb-3">Assign a trainer to a member</h2>
+            <form method="post" novalidate>
+                {% csrf_token %}
+                {% include "includes/form_fields.html" %}
+                <button type="submit" class="btn btn-accent">Assign Trainer</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-lg-7">
+        <div class="content-card p-4">
+            <h2 class="h5 mb-3">Current assignments</h2>
+            <div class="table-responsive">
+                <table class="table align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th>Member</th>
+                            <th>Email</th>
+                            <th>Trainer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for member in assignments %}
+                            <tr>
+                                <td>{{ member.fullname }}</td>
+                                <td>{{ member.email }}</td>
+                                <td>{{ member.trainer.fullname|default:"Unassigned" }}</td>
+                            </tr>
+                        {% empty %}
+                            <tr><td colspan="3" class="text-muted">No members yet.</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

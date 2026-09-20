@@ -1,0 +1,37 @@
+{% extends "dashboard_base.html" %}
+{% block title %}Assigned Members | FITFOCUS{% endblock %}
+{% block dashboard_content %}
+<h1 class="h3 mb-4">Assigned Members</h1>
+<div class="content-card p-4">
+    <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Goal</th>
+                    <th>Weight</th>
+                    <th>BMI</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for member in members %}
+                    <tr>
+                        <td>{{ member.member_id }}</td>
+                        <td>{{ member.fullname }}</td>
+                        <td>{{ member.email }}</td>
+                        <td>{{ member.phone }}</td>
+                        <td>{{ member.goal }}</td>
+                        <td>{{ member.weight }} kg</td>
+                        <td>{{ member.calculate_bmi }}</td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="7" class="text-muted">No members are assigned to you yet.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

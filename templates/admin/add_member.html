@@ -1,0 +1,20 @@
+{% extends "dashboard_base.html" %}
+{% block title %}Add Member | FITFOCUS{% endblock %}
+{% block dashboard_content %}
+<h1 class="h3 mb-4">Add Members</h1>
+<div class="content-card p-4">
+    <form method="post" novalidate>
+        {% csrf_token %}
+        <div class="row">
+            {% for field in form %}
+                <div class="col-md-6 mb-3">
+                    <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                    {% for error in field.errors %}<div class="text-danger small">{{ error }}</div>{% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-accent">Save Member</button>
+    </form>
+</div>
+{% endblock %}

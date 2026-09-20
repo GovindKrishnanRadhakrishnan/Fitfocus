@@ -1,0 +1,22 @@
+{% extends "dashboard_base.html" %}
+{% block title %}Member Profile | FITFOCUS{% endblock %}
+{% block dashboard_content %}
+<h1 class="h3 mb-4">Member Profile</h1>
+<div class="content-card p-4" style="max-width: 760px;">
+    <dl class="row mb-0">
+        <dt class="col-sm-4">Member ID</dt><dd class="col-sm-8">{{ member.member_id }}</dd>
+        <dt class="col-sm-4">Full Name</dt><dd class="col-sm-8">{{ member.fullname }}</dd>
+        <dt class="col-sm-4">Email</dt><dd class="col-sm-8">{{ member.email }}</dd>
+        <dt class="col-sm-4">Phone</dt><dd class="col-sm-8">{{ member.phone }}</dd>
+        <dt class="col-sm-4">Date of Birth</dt><dd class="col-sm-8">{{ member.dob }}</dd>
+        <dt class="col-sm-4">Age</dt><dd class="col-sm-8">{{ member.age }}</dd>
+        <dt class="col-sm-4">Gender</dt><dd class="col-sm-8">{{ member.gender }}</dd>
+        <dt class="col-sm-4">Address</dt><dd class="col-sm-8">{{ member.address }}</dd>
+        <dt class="col-sm-4">Height</dt><dd class="col-sm-8">{{ member.height }} cm</dd>
+        <dt class="col-sm-4">Weight</dt><dd class="col-sm-8">{{ member.weight }} kg</dd>
+        <dt class="col-sm-4">BMI</dt><dd class="col-sm-8">{{ bmi|default:"—" }} ({{ bmi_category }})</dd>
+        <dt class="col-sm-4">Fitness Goal</dt><dd class="col-sm-8">{{ member.goal }}</dd>
+        <dt class="col-sm-4">Assigned Trainer</dt><dd class="col-sm-8">{{ member.trainer.fullname|default:"Not assigned yet" }}</dd>
+    </dl>
+</div>
+{% endblock %}
