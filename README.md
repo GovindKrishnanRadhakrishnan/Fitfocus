@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # FitFocus Gym Management System
 
 ## 1. Project Overview
@@ -388,3 +389,7 @@ The test suite creates its own temporary database. It does not depend on demo gy
 - Member and trainer passwords entered in the UI must satisfy Django’s password validators (at least 8 characters, not entirely numeric, and not a common password).
 - The initial administrator is created by `create_initial_admin` and is intended for first access to the system.
 - SQLite is appropriate for local use. Change `DATABASES` in `fitt/settings.py` only if you deliberately move to another database engine.
+=======
+# Fitfocus
+A full-stack gym management system built with Python Django and SQLite, featuring role-based dashboards for admins, trainers, and members, with workout, diet, progress, and payment management.
+>>>>>>> 9d2a6a859b6f2a7cf71ac03cd076d240ceb7730d
