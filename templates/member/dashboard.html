@@ -3,21 +3,24 @@
 {% block dashboard_content %}
 <h1 class="h3 mb-4">Member Dashboard</h1>
 <div class="row g-3 mb-4">
-    <div class="col-md-4">
+    <div class="col-sm-6 col-md-4">
         <div class="stat-card p-4">
+            <div class="stat-icon"><i class="fa-solid fa-weight-scale"></i></div>
             <div class="stat-label">Current Weight</div>
             <div class="stat-value">{{ current_weight }} kg</div>
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-sm-6 col-md-4">
         <div class="stat-card p-4">
+            <div class="stat-icon"><i class="fa-solid fa-heart-pulse"></i></div>
             <div class="stat-label">BMI</div>
             <div class="stat-value">{{ bmi|default:"—" }}</div>
             <div class="text-muted">{{ bmi_category }}</div>
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-sm-6 col-md-4">
         <div class="stat-card p-4">
+            <div class="stat-icon"><i class="fa-solid fa-credit-card"></i></div>
             <div class="stat-label">Payment Status</div>
             <div class="stat-value h3 mb-0">{% if latest_payment %}{{ latest_payment.payment_status }}{% else %}None{% endif %}</div>
             {% if latest_payment %}<div class="text-muted">{{ latest_payment.amount }} · {{ latest_payment.payment_date }}</div>{% endif %}
@@ -26,29 +29,29 @@
 </div>
 
 <div class="row g-3 mb-4">
-    <div class="col-md-4 col-xl">
+    <div class="col-sm-6 col-md-4 col-xl">
         <a class="dashboard-link" href="{% url 'member_profile' %}">
-            <div class="stat-card p-3 h-100"><strong>Member Profile</strong><p class="small text-muted mb-0 mt-2">View your personal details.</p></div>
+            <div class="stat-card p-3 h-100"><div class="stat-icon"><i class="fa-solid fa-id-card"></i></div><strong>Member Profile</strong><p class="small text-muted mb-0 mt-2">View your personal details.</p></div>
         </a>
     </div>
-    <div class="col-md-4 col-xl">
+    <div class="col-sm-6 col-md-4 col-xl">
         <a class="dashboard-link" href="{% url 'member_workout' %}">
-            <div class="stat-card p-3 h-100"><strong>Assigned Workout Plan</strong><p class="small text-muted mb-0 mt-2">See your current workout.</p></div>
+            <div class="stat-card p-3 h-100"><div class="stat-icon"><i class="fa-solid fa-person-running"></i></div><strong>Assigned Workout Plan</strong><p class="small text-muted mb-0 mt-2">See your current workout.</p></div>
         </a>
     </div>
-    <div class="col-md-4 col-xl">
+    <div class="col-sm-6 col-md-4 col-xl">
         <a class="dashboard-link" href="{% url 'member_diet' %}">
-            <div class="stat-card p-3 h-100"><strong>Assigned Diet Plan</strong><p class="small text-muted mb-0 mt-2">See your current diet.</p></div>
+            <div class="stat-card p-3 h-100"><div class="stat-icon"><i class="fa-solid fa-apple-whole"></i></div><strong>Assigned Diet Plan</strong><p class="small text-muted mb-0 mt-2">See your current diet.</p></div>
         </a>
     </div>
-    <div class="col-md-4 col-xl">
+    <div class="col-sm-6 col-md-4 col-xl">
         <a class="dashboard-link" href="{% url 'member_progress' %}">
-            <div class="stat-card p-3 h-100"><strong>Progress Tracking</strong><p class="small text-muted mb-0 mt-2">Review weight and BMI history.</p></div>
+            <div class="stat-card p-3 h-100"><div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div><strong>Progress Tracking</strong><p class="small text-muted mb-0 mt-2">Review weight and BMI history.</p></div>
         </a>
     </div>
-    <div class="col-md-4 col-xl">
+    <div class="col-sm-6 col-md-4 col-xl">
         <a class="dashboard-link" href="{% url 'member_payments' %}">
-            <div class="stat-card p-3 h-100"><strong>Payment Details</strong><p class="small text-muted mb-0 mt-2">View your payment records.</p></div>
+            <div class="stat-card p-3 h-100"><div class="stat-icon"><i class="fa-solid fa-credit-card"></i></div><strong>Payment Details</strong><p class="small text-muted mb-0 mt-2">View your payment records.</p></div>
         </a>
     </div>
 </div>

@@ -23,7 +23,7 @@
                     <span class="brand-subtitle">Gym Management System</span>
                 </span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="mainNav">
@@ -49,7 +49,7 @@
     </nav>
 
     {% if messages %}
-        <div class="container mt-3">
+        <div class="container app-messages mt-3">
             {% for message in messages %}
                 <div class="alert alert-{{ message.tags|default:'info' }} alert-dismissible fade show" role="alert">
                     {{ message }}
@@ -60,6 +60,15 @@
     {% endif %}
 
     {% block content %}{% endblock %}
+
+    {% block footer %}
+    <footer class="site-footer py-3 mt-auto">
+        <div class="container-fluid px-3 px-lg-4 d-flex flex-column flex-md-row justify-content-between gap-2">
+            <span>FITFOCUS Gym Management System</span>
+            <span>Admin · Trainer · Member</span>
+        </div>
+    </footer>
+    {% endblock %}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{% static 'js/main.js' %}"></script>

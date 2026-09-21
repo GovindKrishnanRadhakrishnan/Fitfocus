@@ -3,20 +3,23 @@
 {% block dashboard_content %}
 <h1 class="h3 mb-4">Trainer Dashboard</h1>
 <div class="row g-3 mb-4">
-    <div class="col-md-4">
+    <div class="col-sm-6 col-md-4">
         <div class="stat-card p-4">
+            <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
             <div class="stat-label">Assigned Members</div>
             <div class="stat-value">{{ assigned_count }}</div>
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-sm-6 col-md-4">
         <div class="stat-card p-4">
+            <div class="stat-icon"><i class="fa-solid fa-person-running"></i></div>
             <div class="stat-label">Workout Plans</div>
             <div class="stat-value">{{ workout_count }}</div>
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-sm-6 col-md-4">
         <div class="stat-card p-4">
+            <div class="stat-icon"><i class="fa-solid fa-apple-whole"></i></div>
             <div class="stat-label">Diet Plans</div>
             <div class="stat-value">{{ diet_count }}</div>
         </div>
@@ -24,29 +27,29 @@
 </div>
 
 <div class="row g-3 mb-4">
-    <div class="col-md-4 col-xl">
+    <div class="col-sm-6 col-md-4 col-xl">
         <a class="dashboard-link" href="{% url 'trainer_profile' %}">
-            <div class="stat-card p-3 h-100"><strong>Trainer Profile</strong><p class="small text-muted mb-0 mt-2">View your details.</p></div>
+            <div class="stat-card p-3 h-100"><div class="stat-icon"><i class="fa-solid fa-id-card"></i></div><strong>Trainer Profile</strong><p class="small text-muted mb-0 mt-2">View your details.</p></div>
         </a>
     </div>
-    <div class="col-md-4 col-xl">
+    <div class="col-sm-6 col-md-4 col-xl">
         <a class="dashboard-link" href="{% url 'trainer_members' %}">
-            <div class="stat-card p-3 h-100"><strong>Assigned Members</strong><p class="small text-muted mb-0 mt-2">See members assigned to you.</p></div>
+            <div class="stat-card p-3 h-100"><div class="stat-icon"><i class="fa-solid fa-users"></i></div><strong>Assigned Members</strong><p class="small text-muted mb-0 mt-2">See members assigned to you.</p></div>
         </a>
     </div>
-    <div class="col-md-4 col-xl">
+    <div class="col-sm-6 col-md-4 col-xl">
         <a class="dashboard-link" href="{% url 'trainer_workout_add' %}">
-            <div class="stat-card p-3 h-100"><strong>Assign Workout Plan</strong><p class="small text-muted mb-0 mt-2">Create a workout for a member.</p></div>
+            <div class="stat-card p-3 h-100"><div class="stat-icon"><i class="fa-solid fa-person-running"></i></div><strong>Assign Workout Plan</strong><p class="small text-muted mb-0 mt-2">Create a workout for a member.</p></div>
         </a>
     </div>
-    <div class="col-md-4 col-xl">
+    <div class="col-sm-6 col-md-4 col-xl">
         <a class="dashboard-link" href="{% url 'trainer_diet_add' %}">
-            <div class="stat-card p-3 h-100"><strong>Assign Diet Plan</strong><p class="small text-muted mb-0 mt-2">Create a diet for a member.</p></div>
+            <div class="stat-card p-3 h-100"><div class="stat-icon"><i class="fa-solid fa-apple-whole"></i></div><strong>Assign Diet Plan</strong><p class="small text-muted mb-0 mt-2">Create a diet for a member.</p></div>
         </a>
     </div>
-    <div class="col-md-4 col-xl">
+    <div class="col-sm-6 col-md-4 col-xl">
         <a class="dashboard-link" href="{% url 'trainer_progress' %}">
-            <div class="stat-card p-3 h-100"><strong>View Member Progress</strong><p class="small text-muted mb-0 mt-2">Update weight, BMI, and remarks.</p></div>
+            <div class="stat-card p-3 h-100"><div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div><strong>View Member Progress</strong><p class="small text-muted mb-0 mt-2">Update weight, BMI, and remarks.</p></div>
         </a>
     </div>
 </div>

@@ -1,0 +1,32 @@
+{% if user.role == 'admin' %}
+    <p class="text-muted text-uppercase small mb-2">Admin</p>
+    <nav class="nav flex-column">
+        <a class="nav-link {% if request.resolver_match.url_name == 'admin_dashboard' %}active{% endif %}" href="{% url 'admin_dashboard' %}"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'admin_member_add' %}active{% endif %}" href="{% url 'admin_member_add' %}"><i class="fa-solid fa-user-plus"></i> Add Members</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'admin_members' %}active{% endif %}" href="{% url 'admin_members' %}"><i class="fa-solid fa-users"></i> View Members</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'admin_trainer_add' %}active{% endif %}" href="{% url 'admin_trainer_add' %}"><i class="fa-solid fa-dumbbell"></i> Add Trainers</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'admin_trainers_manage' or request.resolver_match.url_name == 'admin_trainers' %}active{% endif %}" href="{% url 'admin_trainers_manage' %}"><i class="fa-solid fa-clipboard-list"></i> Manage Trainers</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'admin_assign_trainer' %}active{% endif %}" href="{% url 'admin_assign_trainer' %}"><i class="fa-solid fa-link"></i> Assign Trainers</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'admin_payments' %}active{% endif %}" href="{% url 'admin_payments' %}"><i class="fa-solid fa-credit-card"></i> View Payments</a>
+    </nav>
+{% elif user.role == 'trainer' %}
+    <p class="text-muted text-uppercase small mb-2">Trainer</p>
+    <nav class="nav flex-column">
+        <a class="nav-link {% if request.resolver_match.url_name == 'trainer_dashboard' %}active{% endif %}" href="{% url 'trainer_dashboard' %}"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'trainer_profile' %}active{% endif %}" href="{% url 'trainer_profile' %}"><i class="fa-solid fa-id-card"></i> Trainer Profile</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'trainer_members' %}active{% endif %}" href="{% url 'trainer_members' %}"><i class="fa-solid fa-users"></i> Assigned Members</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'trainer_workout_add' %}active{% endif %}" href="{% url 'trainer_workout_add' %}"><i class="fa-solid fa-person-running"></i> Assign Workout Plan</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'trainer_diet_add' %}active{% endif %}" href="{% url 'trainer_diet_add' %}"><i class="fa-solid fa-apple-whole"></i> Assign Diet Plan</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'trainer_progress' %}active{% endif %}" href="{% url 'trainer_progress' %}"><i class="fa-solid fa-chart-line"></i> View Member Progress</a>
+    </nav>
+{% elif user.role == 'member' %}
+    <p class="text-muted text-uppercase small mb-2">Member</p>
+    <nav class="nav flex-column">
+        <a class="nav-link {% if request.resolver_match.url_name == 'member_dashboard' %}active{% endif %}" href="{% url 'member_dashboard' %}"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'member_profile' %}active{% endif %}" href="{% url 'member_profile' %}"><i class="fa-solid fa-id-card"></i> Member Profile</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'member_workout' %}active{% endif %}" href="{% url 'member_workout' %}"><i class="fa-solid fa-person-running"></i> Assigned Workout Plan</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'member_diet' %}active{% endif %}" href="{% url 'member_diet' %}"><i class="fa-solid fa-apple-whole"></i> Assigned Diet Plan</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'member_progress' %}active{% endif %}" href="{% url 'member_progress' %}"><i class="fa-solid fa-chart-line"></i> Progress Tracking</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'member_payments' %}active{% endif %}" href="{% url 'member_payments' %}"><i class="fa-solid fa-credit-card"></i> Payment Details</a>
+    </nav>
+{% endif %}

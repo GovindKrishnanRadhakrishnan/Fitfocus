@@ -1,15 +1,16 @@
 {% extends "base.html" %}
 
 {% block title %}FITFOCUS | Gym Management System{% endblock %}
+{% block body_class %}page-home{% endblock %}
 
 {% block content %}
 <section class="page-hero d-flex align-items-center">
     <div class="container py-5">
-        <div class="row align-items-center g-5">
-            <div class="col-lg-6">
-                <p class="text-uppercase text-muted mb-2">Digital gym operations</p>
+        <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-7 hero-copy">
+                <p class="hero-kicker text-uppercase mb-2">Digital gym operations</p>
                 <h1 class="display-4 fw-bold mb-3">FITFOCUS<br>Gym Management System</h1>
-                <p class="lead text-muted mb-4">
+                <p class="lead mb-4" style="max-width: 38rem;">
                     A role-based platform for administrators, trainers, and members to manage profiles,
                     training plans, diet plans, progress, and payments.
                 </p>
@@ -18,22 +19,25 @@
                     <a class="btn btn-outline-light btn-lg" href="{% url 'register' %}">Member Registration</a>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-5">
                 <div class="row g-3">
-                    <div class="col-md-4">
+                    <div class="col-sm-4 col-lg-12 col-xl-4">
                         <div class="stat-card p-4 h-100">
+                            <div class="stat-icon"><i class="fa-solid fa-shield-halved"></i></div>
                             <div class="stat-label">Admin</div>
                             <p class="mb-0 mt-2">Members, trainers, assignments, and payments.</p>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-sm-4 col-lg-12 col-xl-4">
                         <div class="stat-card p-4 h-100">
+                            <div class="stat-icon"><i class="fa-solid fa-dumbbell"></i></div>
                             <div class="stat-label">Trainer</div>
                             <p class="mb-0 mt-2">Assigned members, workouts, diets, and progress.</p>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-sm-4 col-lg-12 col-xl-4">
                         <div class="stat-card p-4 h-100">
+                            <div class="stat-icon"><i class="fa-solid fa-user"></i></div>
                             <div class="stat-label">Member</div>
                             <p class="mb-0 mt-2">Profile, plans, tracking, and payment details.</p>
                         </div>
